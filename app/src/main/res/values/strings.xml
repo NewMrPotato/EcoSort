@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">EcoSort</string>
+    <string name="profile">Профиль</string>
+    <string name="learn">Обучение</string>
+    <string name="detect">Обнаружение</string>
+    <string name="map">Карта</string>
+    <string name="map_key" translatable="false"></string>
+    <string name="search">Поиск</string>
+    <string name="back">Назад</string>
+    <string name="sign_in">Вход</string>
+    <string name="sign_up">Регистрация</string>
+    <string name="mail">Почта</string>
+    <string name="password">Пароль</string>
+    <string name="login">Войти</string>
+    <string name="loginu"><u>Войти</u></string>
+    <string name="forgot_password">Забыли пароль?</string>
+    <string name="or_sigh_in_with">или войдите в систему с помощью</string>
+    <string name="or_sigh_up_with">или зарегистрируйтесь в системе с помощью</string>
+    <string name="sigh_up">Регистрация</string>
+    <string name="sigh_in">Вход</string>
+    <string name="registration">Зарегистрироваться</string>
+    <string name="repeat_password">Повторите пароль</string>
+    <string name="detect_button">Обнаружить</string>
+    <string name="map_unavailable">Карта недоступна в этой сборке.</string>
+    <string name="placemark_details">Адрес: %1$s\n\nДанные из демонстрационного набора. Уточните актуальность пункта перед визитом.</string>
+    <string name="camera_unavailable">Не удалось открыть камеру.</string>
+    <string name="profile_unavailable">Вход и регистрация пока недоступны.</string>
+    <string name="close">Закрыть</string>
+</resources>
