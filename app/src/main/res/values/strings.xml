@@ -21,7 +21,14 @@
     <string name="registration">Зарегистрироваться</string>
     <string name="repeat_password">Повторите пароль</string>
     <string name="detect_button">Обнаружить</string>
-    <string name="map_unavailable">Карта недоступна в этой сборке.</string>
+    <string name="collection_points_title">Пункты приёма</string>
+    <string name="collection_points_tab">Пункты</string>
+    <string name="collection_points_demo">Нижневартовск · демонстрационные данные</string>
+    <string name="collection_points_search">Название или адрес</string>
+    <string name="collection_points_list">Список</string>
+    <string name="collection_points_found">Найдено: %1$d</string>
+    <string name="collection_points_empty">Ничего не найдено. Попробуйте другое название или адрес.</string>
+    <string name="collection_point_show_on_map">На карте</string>
     <string name="placemark_details">Адрес: %1$s\n\nДанные из демонстрационного набора. Уточните актуальность пункта перед визитом.</string>
     <string name="camera_unavailable">Не удалось открыть камеру.</string>
     <string name="profile_unavailable">Вход и регистрация пока недоступны.</string>
