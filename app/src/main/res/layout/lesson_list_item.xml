@@ -39,7 +39,7 @@
                 android:id="@+id/lesson_title_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Причины сортировать мусор"
+                android:text="@string/lesson_row_placeholder"
                 android:textSize="20sp"
                 android:layout_margin="10dp"
                 android:textStyle="bold"

@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 public class LessonActivity extends AppCompatActivity {
+    public static final String EXTRA_IMAGE = "lesson_content_image_view";
+    public static final String EXTRA_TEXT = "lesson_content_text_view";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +22,7 @@ public class LessonActivity extends AppCompatActivity {
         ImageView lesson_content_image_view = findViewById(R.id.lesson_content_image_view);
         TextView lesson_content_text_view = findViewById(R.id.lesson_content_text_view);
 
-        lesson_content_image_view.setImageResource(getIntent().getIntExtra("lesson_content_image_view", 0));
-        lesson_content_text_view.setText(getIntent().getStringExtra("lesson_content_text_view"));
+        lesson_content_image_view.setImageResource(getIntent().getIntExtra(EXTRA_IMAGE, 0));
+        lesson_content_text_view.setText(getIntent().getStringExtra(EXTRA_TEXT));
     }
 }

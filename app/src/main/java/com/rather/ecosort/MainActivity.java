@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     private static final String PENDING_PHOTO = "pending_photo";
     private static final String DISPLAYED_PHOTO = "displayed_photo";
     private static final String SELECTED_TAB = "selected_tab";
+    private static final String ASKED_FOR_LOCATION = "asked_for_location";
     private static final String COLLECTION_POINTS_MAP_MODE = "collection_points_map_mode";
     private static final float PLACEMARK_LABEL_ZOOM = 14f;
     private static final Point INITIAL_MAP_CENTER = new Point(60.941068, 76.564929);
@@ -123,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
 
     private MapView map_view;
     private UserLocationLayer userLocationLayer;
-    private final List<Placemark> placemarks = CollectionPoints.demo();
+    private List<Placemark> placemarks;
     private MaterialButtonToggleGroup pointModes;
     private CollectionPointsAdapter pointsAdapter;
     private RecyclerView pointList;
@@ -179,10 +180,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         detect_info_material_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this)
-                    .setTitle("Что ожидается в этом разделе")
-                    .setMessage("В данном разделе планируется реализовать распознавание мусора на фото и его сортировку")
+                    .setTitle(R.string.detection_info_title)
+                    .setMessage(R.string.detection_info_message)
                     .setCancelable(true)
-                    .setNegativeButton("`Закрыть`", new DialogInterface.OnClickListener() {
+                    .setNegativeButton(R.string.detection_info_close, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
                         }
@@ -213,10 +214,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         lessons_recycler_view.setAdapter(lessonAdapter);
 
         introducing_text_view = findViewById(R.id.introducing_text_view);
-        introducing_text_view.setText(Html.fromHtml("<h1>Добро пожаловать в приложение для обучения сортировке мусора!</h1>\n" +
-                "<p>Мы рады видеть вас здесь! Начните учиться правильной сортировке отходов, чтобы сделать наш мир чище и здоровее.</p>\n" +
-                "<p>Следуйте нашим рекомендациям, разделяйте отходы на категории и помогайте сохранить окружающую среду.</p>\n" +
-                "<p>Давайте вместе делать мир лучше!</p>"));
+        introducing_text_view.setText(Html.fromHtml(getString(R.string.introducing_html)));
 
         main_profile_image_view.setBackgroundResource(R.drawable.ic_baseline_person_65);
         main_education_image_view.setBackgroundResource(R.drawable.ic_baseline_menu_book_24);
@@ -314,6 +312,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     }
 
     private void setUpCollectionPoints(Bundle savedInstanceState) {
+        placemarks = CollectionPoints.fromRows(getResources().getStringArray(R.array.demo_collection_points));
         pointQuery = findViewById(R.id.collection_points_query);
         pointSearchStatus = findViewById(R.id.collection_points_status);
         pointList = findViewById(R.id.collection_points_list);
@@ -448,8 +447,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
 
     private void requestMapLocation() {
         if (!hasLocationPermission() && !getPreferences(MODE_PRIVATE)
-                .getBoolean("asked_for_location", false)) {
-            getPreferences(MODE_PRIVATE).edit().putBoolean("asked_for_location", true).apply();
+                .getBoolean(ASKED_FOR_LOCATION, false)) {
+            getPreferences(MODE_PRIVATE).edit().putBoolean(ASKED_FOR_LOCATION, true).apply();
             requestLocation.launch(new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION,
                     android.Manifest.permission.ACCESS_COARSE_LOCATION});
         }
@@ -469,97 +468,30 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         }
     }
 
-    private void setLessonsList(){
+    private void setLessonsList() {
         lessons_list.add(new Lesson(R.drawable.ic_question_reasons,
-                "5 причин сортировать отходы",
-                "\t\t\t Еще сомневаетесь в необходимости сортировать отходы?  Есть 5 причин начть это делать!\n\n\n\n\n" +
-                        "1️⃣ Сокращается рост свалок. Больше отходов отправляется на переработку," +
-                        " что помогает сократить количество отходов на свалках на 50–60 %. \n\n\n" +
-                        "" +
-                        "2️⃣ Снижает угрозу окружающей среде и здоровью людей. Опасные отходы попадают на специализированные предприятия," +
-                        " где уничтожаются, не нанося вред природе и здоровью. \n\n\n" +
-                        "" +
-                        "3️⃣ Возвращает в цикл производства уже использованные ресурсы." +
-                        " Вторсырьё можно ещё раз использовать для производства новых товаров.\n\n\n" +
-                        ""+
-                        "4️⃣ Помогает экономике страны. Раздельный сбор в перспективе может принести ощутимую пользу экономике.\n\n\n" +
-                        ""+
-                        "5️⃣ Приносит выгоду населению. Отсортировав отходы дома, можно сдать макулатуру, металлолом или стеклотару в ближайший пункт приёма.",
-                R.drawable.ic_content_5reasons));
+                getString(R.string.lesson_sorting_reasons_title),
+                getString(R.string.lesson_sorting_reasons_body), R.drawable.ic_content_5reasons));
 
         lessons_list.add(new Lesson(R.drawable.ic_litter,
-                "Основные виды отходов",
-                "\t\t Основные категории, на которые разделяется бытовой мусор, следующие:" +
-                        " бумага и картон, стекло, пластик, текстиль, металл, пищевые отходы, опасные и не сортируемые отходы — то есть те," +
-                        " которые не входят в основные категории и не могут быть переработаны вторично." +
-                        " Такие отходы вывозятся на полигоны или мусоросжигательные заводы." +
-                        " Все остальные категории можно переработать и дать им вторую жизнь.\n\n\n\n" +
-                        "1️⃣ Бумага и картон: газеты, журналы, офисная бумага, карточные коробки и упаковка из картона.\n\n" +
-                        "2️⃣ Пластик: пластиковые бутылки, контейнеры, упаковочные материалы, пленка, пластиковые пакеты.\n\n" +
-                        "3️⃣ Стекло: бутылки, банки, стеклянные контейнеры.\n\n" +
-                        "4️⃣ Металл: алюминиевые банки, жестяные банки, металлические крышки, металлическая упаковка.\n\n" +
-                        "5️⃣ Органические отходы: пищевые остатки, овощи, фрукты, чайные мешки, кофейная гуща.\n\n" +
-                        "6️⃣ Электроника и электроотходы: вышедшая из строя электроника, старые компьютеры, мобильные телефоны, батарейки.\n\n" +
-                        "7️⃣ Опасные отходы: жидкие и твердые химические отходы, аккумуляторы, лампы накаливания, лекарства, краски.\n\n" +
-                        "8️⃣ Текстиль: одежда, обувь, ткани, текстильные изделия.\n\n" +
-                        "9️⃣ Строительные отходы: бетон, кирпичи, древесина, металлические конструкции.\n\n" +
-                        "\uD83D\uDD1F Медицинские отходы: использованные шприцы, перевязочный материал, медицинские инструменты.\n\n\n" +
-                        "\t\t Эти виды отходов являются основными категориями для сортировки и переработки в целях уменьшения негативного воздействия на окружающую среду и рационального использования ресурсов." +
-                        " Правильная сортировка и утилизация отходов способствуют снижению количества отходов на свалке, а также поддерживают экологически чистую и устойчивую среду жизнедеятельности.",
-                R.drawable.different_litter));
+                getString(R.string.lesson_waste_categories_title),
+                getString(R.string.lesson_waste_categories_body), R.drawable.different_litter));
 
         lessons_list.add(new Lesson(R.drawable.ic_plastic,
-                "Виды пластика для вторичной переработки",
-                "\t\t Пластик является наиболее обширным мусором. " +
-                        "Определить вид пластика можно, если найти треугольный значок с цифрой и название пластика на самом пластике, " +
-                        "однако это не всегда удастся сделать, так как на некоторых объектах он не указан. " +
-                        "Пластик имеет большое количество различных видов. Основные виды пластика и изготавливаемые из них изделия изображены на рисунке. " +
-                        "Из данных видов пластика не подлежат переработке виды пластика под номерами 3 и 7.",
-                R.drawable.different_plastics));
+                getString(R.string.lesson_recyclable_plastics_title),
+                getString(R.string.lesson_recyclable_plastics_body), R.drawable.different_plastics));
 
         lessons_list.add(new Lesson(R.drawable.ic_sort_trash,
-                "Виды контейнеров для сортировки мусора",
-                "\t\t Для удобства сортировки мусора в домашних условиях, в общественных местах" +
-                        " и на предприятиях используются различные виды контейнеров. Вот некоторые из них:\n\n\n" +
-                        "1️⃣ Контейнер для пластика - обычно имеет оранжевый цвет.\n\n" +
-                        "2️⃣ Контейнер для бумаги - часто окрашен в синий цвет.\n\n" +
-                        "3️⃣ Контейнер для картона - часто окрашен в желтый цвет.\n\n" +
-                        "4️⃣ Контейнер для стекла - чаще всего зеленого цвета.\n\n" +
-                        "5️⃣ Контейнер для органических отходов - может быть черного цвета.\n\n" +
-                        "6️⃣ Контейнер для металла - обычно серебристого или серого цвета.\n\n" +
-                        "7️⃣ Контейнер для перерабатываемых отходов - обычно имеет красный цвет.\n\n" +
-                        "8️⃣ Контейнер для опасных отходов - может быть коричневого цвета.\n\n" +
-                        "9️⃣ Универсальный контейнер - часто окрашен в серый или черный цвет.\n\n\n" +
-                        "\t\t Иногда цвет контейнеров может отлмчаться, но тогда нал самом контейнере будет написано для какого мусора он предназначен.",
-                R.drawable.different_containers));
+                getString(R.string.lesson_sorting_containers_title),
+                getString(R.string.lesson_sorting_containers_body), R.drawable.different_containers));
 
         lessons_list.add(new Lesson(R.drawable.how_to_sort_trash,
-                "Как правильно сортировать мусор",
-                "\t\t Если вы собираетесь разделять отходы, то вам потребуется несколько емкостей для их хранения. " +
-                        "Их можно разместить на балконе, в кладовой. В последнее время наблюдается тенденция размещения контейнеров в подъездах многоквартирных домов. \n\n\n" +
-                        "Раздельная сортировка отходов может состоять из следующих этапов:\n\n" +
-                        "1️⃣ Отобрать опасные и не перерабатываемые отходы. Для опасных отходов следует завести отдельное мусорное ведро.\n\n" +
-                        "2️⃣ Очистить вторсырье в соответствии с правилами приема. Бутылки должны быть чистыми, а макулатура и другое объемное сырье должно быть упаковано, связано.\n\n" +
-                        "3️⃣ Отобрать вторсырье: бумага, стекло, металл и некоторые виды пластика: HDPE, LDPE, PP, PETE, PS. В случае если вы собираетесь сдавать вторсырье в общий контейнер для последующей сортировки, тогда помещайте его в одном мусорное ведро. В противном случае вам понадобятся пакеты или ведра для разных видов вторсырья.\n\n" +
-                        "4️⃣ Отнести отходы на пункт приема. \n\n\n" +
-                        "\t\t Основные правила приема на пунктах: \n\n\n" +
-                        "1️⃣ Разные виды отходов не должны быть смешанны.\n\n" +
-                        "2️⃣ Мусор должен быть в сухом и чистом виде.",
-                R.drawable.ic_how_to_sort));
+                getString(R.string.lesson_sorting_steps_title),
+                getString(R.string.lesson_sorting_steps_body), R.drawable.ic_how_to_sort));
 
         lessons_list.add(new Lesson(R.drawable.ic_man_think,
-                "А вы знаете, что…",
-                "✅70% объема мусорного ведра в нашей квартире занимает упаковка от продуктов и товаров. При этом большая часть её пригодна для переработки или вторичного использования.\n\n\n" +
-                        "✅На производство 1 бутылки тратится такое же количество энергии, как на переработку 10 таких же изделий.\n\n" +
-                        "✅60 кг макулатуры, переданной на переработку, позволяют сохранить 1 дерево.\n\n" +
-                        "✅Около 500 лет потребуется для полного разложения в природе одноразовых подгузников, гигиенических прокладок, платков и других изделий из нетканых материалов в природе.\n\n" +
-                        "✅5 миллиардов окурков люди выбрасывают каждый год. Полностью «бычок» от сигареты с синтетическим фильтром в окружающей среде разложится только через 10 лет.\n\n" +
-                        "✅2 миллиарда тонн отходов генерирует население Земли ежегодно.\n\n" +
-                        "✅7 миллионов тонн одежды выбрасывается на планете ежегодно. Только 12% вещей передаются на переработку.\n\n" +
-                        "✅2000 тонн мусора собрали на околоземной орбите во время первого космического субботника на МКС в 2002 году.\n\n" +
-                        "✅1,5 миллиона тонн метана и 21,5 миллион тонн углекислого газа выделяют ежегодно в атмосферу российские мусорные полигоны.\n\n" +
-                        "✅32 кг золота, 3,5 тонны серебра и 2,5 тонны бронзы извлекли из 78985 тонн электронного мусора в Японии. Акция по сбору телефонов и других гаджетов была посвящена Олимпиаде 2020.\n\n",
-                R.drawable.man_think));
+                getString(R.string.lesson_recycling_facts_title),
+                getString(R.string.lesson_recycling_facts_body), R.drawable.man_think));
     }
 
     private void setActionsForClGroups() {
