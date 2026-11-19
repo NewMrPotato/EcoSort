@@ -6,184 +6,89 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <View
         android:id="@+id/gray_line_constraint_layout"
         android:layout_width="0dp"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
+        android:background="@color/eco_outline"
         app:layout_constraintBottom_toTopOf="@+id/main_groups_constraint_layout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/light_gray">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/main_groups_constraint_layout"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/main_profile_button_constraint_layout"
-            android:layout_width="45dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_weight="1"
-            android:background="@color/white"
-            android:clickable="true"
-            android:drawableBottom="@drawable/ic_baseline_person_65"
-            android:focusable="true"
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            tools:ignore="SpeakableTextPresentCheck">
+            style="@style/Widget.EcoSort.NavigationItem"
+            android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/main_profile_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/main_profile_text_view"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                style="@style/Widget.EcoSort.NavigationIcon"
+                app:srcCompat="@drawable/ic_baseline_person_65" />
 
             <TextView
-                android:id="@+id/main_profile_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/profile"
-                android:textColor="@color/light_gray"
-                android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/main_profile_image_view" />
+                style="@style/Widget.EcoSort.NavigationLabel"
+                android:text="@string/profile" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="match_parent" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/main_education_button_constraint_layout"
-            android:layout_width="45dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="@color/white"
-            android:clickable="true"
-            android:drawableBottom="@drawable/ic_baseline_person_65"
-            android:focusable="true"
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            tools:ignore="SpeakableTextPresentCheck,DuplicateClickableBoundsCheck">
+            style="@style/Widget.EcoSort.NavigationItem"
+            android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/main_education_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/main_education_text_view"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                style="@style/Widget.EcoSort.NavigationIcon"
+                app:srcCompat="@drawable/ic_baseline_menu_book_24" />
 
             <TextView
-                android:id="@+id/main_education_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/learn"
-                android:textColor="@color/light_gray"
-                android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/main_education_image_view" />
+                style="@style/Widget.EcoSort.NavigationLabel"
+                android:text="@string/learn" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="match_parent" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/main_map_button_constraint_layout"
-            android:layout_width="45dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="@color/white"
-            android:clickable="true"
-            android:drawableBottom="@drawable/ic_baseline_person_65"
-            android:focusable="true"
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            tools:ignore="SpeakableTextPresentCheck,DuplicateClickableBoundsCheck">
+            style="@style/Widget.EcoSort.NavigationItem"
+            android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/main_map_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/main_map_text_view"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                style="@style/Widget.EcoSort.NavigationIcon"
+                app:srcCompat="@drawable/ic_baseline_map_24" />
 
             <TextView
-                android:id="@+id/main_map_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/collection_points_tab"
-                android:textColor="@color/light_gray"
-                android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/main_map_image_view" />
+                style="@style/Widget.EcoSort.NavigationLabel"
+                android:text="@string/collection_points_tab" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
-        <Space
-            android:layout_width="20dp"
-            android:layout_height="match_parent" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/main_trash_detection_button_constraint_layout"
-            android:layout_width="85dp"
-            android:layout_height="55dp"
-            android:layout_marginEnd="20dp"
-            android:layout_weight="1"
-            android:background="@color/white"
-            android:clickable="true"
-            android:drawableBottom="@drawable/ic_baseline_person_65"
-            android:focusable="true"
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            tools:ignore="SpeakableTextPresentCheck">
+            style="@style/Widget.EcoSort.NavigationItem"
+            android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/main_trash_detection_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/main_trash_detection_text_view"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                style="@style/Widget.EcoSort.NavigationIcon"
+                app:srcCompat="@drawable/ic_baseline_search_24" />
 
             <TextView
-                android:id="@+id/main_trash_detection_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/detect"
-                android:textColor="@color/light_gray"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/main_trash_detection_image_view"
-                android:textSize="10sp" />
+                style="@style/Widget.EcoSort.NavigationLabel"
+                android:text="@string/detect" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -191,46 +96,63 @@
         android:id="@+id/introducing_constraint_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:background="?attr/colorSurface"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/gray_line_constraint_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="391dp"
-            android:layout_height="286dp"
-            android:layout_margin="20dp"
-            android:elevation="10dp"
-            android:foregroundGravity="center"
-            app:cardCornerRadius="80dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
-            <ImageView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/introducing_preview"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-        </androidx.cardview.widget.CardView>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/introducing_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:gravity="center"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Widget.EcoSort.OutlinedCard"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintWidth_max="420dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:importantForAccessibility="no"
+                            android:scaleType="fitCenter"
+                            app:srcCompat="@drawable/introducing_preview" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/introducing_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:lineSpacingExtra="3dp"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -238,355 +160,364 @@
         android:id="@+id/profile_constraint_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:background="?attr/colorSurface"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/gray_line_constraint_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/login_layout"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="630dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/sign_in_text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="49dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginEnd="49dp"
-                android:gravity="center"
-                android:text="@string/sign_in"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/profile_username"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="30dp"
-                android:background="@color/white_hint"
-                android:backgroundTint="@color/green"
-                android:drawableStart="@drawable/ic_baseline_person_24"
-                android:drawablePadding="10dp"
-                android:hint="@string/mail"
-                android:minHeight="32dp"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sign_in_text"
-                tools:ignore="DuplicateClickableBoundsCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
+                android:paddingBottom="20dp">
 
-            <EditText
-                android:id="@+id/profile_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="30dp"
-                android:background="@color/white_hint"
-                android:backgroundTint="@color/green"
-                android:drawableStart="@drawable/ic_baseline_lock_24"
-                android:drawablePadding="10dp"
-                android:hint="@string/password"
-                android:minHeight="32dp"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.733"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_username"
-                tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/login_button"
-                android:layout_width="127dp"
-                android:layout_height="57dp"
-                android:layout_marginTop="30dp"
-                android:backgroundTint="@color/green"
-                android:text="@string/login"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_password"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <TextView
-                android:id="@+id/forgot_password_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20sp"
-                android:layout_marginTop="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="@string/forgot_password"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/login_button"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <TextView
-                android:id="@+id/others_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="35sp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="@string/or_sigh_in_with"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/forgot_password_text_view" />
-
-            <LinearLayout
-                android:id="@+id/other_sigh_in_linear_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/others_text">
-
-                <ImageView
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/login_layout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/ic_google" />
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/sign_in_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="49dp"
+                        android:layout_marginTop="22dp"
+                        android:layout_marginEnd="49dp"
+                        android:gravity="center"
+                        android:text="@string/sign_in"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/profile_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="30dp"
+                        android:background="@drawable/eco_profile_field"
+                        android:drawableStart="@drawable/ic_baseline_person_24"
+                        android:drawablePadding="10dp"
+                        app:drawableTint="@color/eco_muted"
+                        android:hint="@string/mail"
+                        android:minHeight="48dp"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textColorHint="@color/eco_muted"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/sign_in_text"
+                        tools:ignore="DuplicateClickableBoundsCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+                    <EditText
+                        android:id="@+id/profile_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="30dp"
+                        android:background="@drawable/eco_profile_field"
+                        android:drawableStart="@drawable/ic_baseline_lock_24"
+                        android:drawablePadding="10dp"
+                        app:drawableTint="@color/eco_muted"
+                        android:hint="@string/password"
+                        android:minHeight="48dp"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textColorHint="@color/eco_muted"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_username"
+                        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/login_button"
+                        android:layout_width="127dp"
+                        android:layout_height="57dp"
+                        android:layout_marginTop="30dp"
+                        android:backgroundTint="@color/green"
+                        android:text="@string/login"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_password"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <TextView
+                        android:id="@+id/forgot_password_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                         android:layout_marginEnd="20dp"
+                        android:layout_marginTop="10dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="@string/forgot_password"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/login_button"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <TextView
+                        android:id="@+id/others_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                         android:layout_marginEnd="24dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="@string/or_sigh_in_with"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/forgot_password_text_view" />
+
+                    <LinearLayout
+                        android:id="@+id/other_sigh_in_linear_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/others_text">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/ic_google" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/ic_wk" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/ic_twitter" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/move_to_registration_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="22dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:text="@string/sigh_up"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/other_sigh_in_linear_layout"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/registration_layout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/ic_wk" />
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/ic_twitter" />
+                    <TextView
+                        android:id="@+id/sign_up_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="49dp"
+                        android:layout_marginTop="22dp"
+                        android:layout_marginEnd="49dp"
+                        android:gravity="center"
+                        android:text="@string/sign_up"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            </LinearLayout>
+                    <EditText
+                        android:id="@+id/registration_profile_mail_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="30dp"
+                        android:background="@drawable/eco_profile_field"
+                        android:drawableStart="@drawable/ic_baseline_person_24"
+                        android:drawablePadding="10dp"
+                        app:drawableTint="@color/eco_muted"
+                        android:hint="@string/mail"
+                        android:minHeight="48dp"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textColorHint="@color/eco_muted"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/sign_up_text"
+                        tools:ignore="DuplicateClickableBoundsCheck" />
 
-            <TextView
-                android:id="@+id/move_to_registration_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:text="@string/sigh_up"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/other_sigh_in_linear_layout"
-                tools:ignore="TouchTargetSizeCheck" />
+                    <EditText
+                        android:id="@+id/registration_profile_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="30dp"
+                        android:background="@drawable/eco_profile_field"
+                        android:drawableStart="@drawable/ic_baseline_lock_24"
+                        android:drawablePadding="10dp"
+                        app:drawableTint="@color/eco_muted"
+                        android:hint="@string/password"
+                        android:minHeight="48dp"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textColorHint="@color/eco_muted"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/registration_profile_mail_edit_text" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <EditText
+                        android:id="@+id/registration_profile_password_repeat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="30dp"
+                        android:background="@drawable/eco_profile_field"
+                        android:drawableStart="@drawable/ic_baseline_lock_24"
+                        android:drawablePadding="10dp"
+                        app:drawableTint="@color/eco_muted"
+                        android:hint="@string/repeat_password"
+                        android:minHeight="48dp"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textColorHint="@color/eco_muted"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/registration_profile_password" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/registration_layout"
-            android:layout_width="match_parent"
-            android:layout_height="630dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/registration_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="57dp"
+                        android:layout_marginTop="30dp"
+                        android:backgroundTint="@color/green"
+                        android:text="@string/registration"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/registration_profile_password_repeat"
+                        tools:ignore="SpeakableTextPresentCheck" />
 
-            <TextView
-                android:id="@+id/sign_up_text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="49dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginEnd="49dp"
-                android:gravity="center"
-                android:text="@string/sign_up"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/registration_others_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                         android:layout_marginEnd="24dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="@string/or_sigh_up_with"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/registration_button" />
 
-            <EditText
-                android:id="@+id/registration_profile_mail_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="30dp"
-                android:background="@color/white_hint"
-                android:backgroundTint="@color/green"
-                android:drawableStart="@drawable/ic_baseline_person_24"
-                android:drawablePadding="10dp"
-                android:hint="@string/mail"
-                android:minHeight="32dp"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sign_up_text"
-                tools:ignore="DuplicateClickableBoundsCheck" />
+                    <LinearLayout
+                        android:id="@+id/other_sigh_up_linear_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/registration_others_text">
 
-            <EditText
-                android:id="@+id/registration_profile_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="30dp"
-                android:background="@color/white_hint"
-                android:backgroundTint="@color/green"
-                android:drawableStart="@drawable/ic_baseline_lock_24"
-                android:drawablePadding="10dp"
-                android:hint="@string/password"
-                android:minHeight="32dp"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.733"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/registration_profile_mail_edit_text" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/ic_google" />
 
-            <EditText
-                android:id="@+id/registration_profile_password_repeat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="30dp"
-                android:background="@color/white_hint"
-                android:backgroundTint="@color/green"
-                android:drawableStart="@drawable/ic_baseline_lock_24"
-                android:drawablePadding="10dp"
-                android:hint="@string/repeat_password"
-                android:minHeight="32dp"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.733"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/registration_profile_password" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/ic_wk" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/registration_button"
-                android:layout_width="wrap_content"
-                android:layout_height="57dp"
-                android:layout_marginTop="30dp"
-                android:backgroundTint="@color/green"
-                android:text="@string/registration"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/registration_profile_password_repeat"
-                tools:ignore="SpeakableTextPresentCheck" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/ic_twitter" />
 
-            <TextView
-                android:id="@+id/registration_others_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="35sp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="@string/or_sigh_up_with"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/registration_button" />
+                    </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/other_sigh_up_linear_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/registration_others_text">
+                    <TextView
+                        android:id="@+id/move_to_login_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="22dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"
+                        android:text="@string/loginu"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/other_sigh_up_linear_layout"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/ic_google" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/ic_wk" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/ic_twitter" />
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/move_to_login_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:text="@string/loginu"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/other_sigh_up_linear_layout"
-                tools:ignore="TouchTargetSizeCheck" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -594,8 +525,7 @@
         android:id="@+id/learn_constraint_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
+        android:background="@color/eco_surface_tint"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/gray_line_constraint_layout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -605,7 +535,12 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/lessons_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingStart="16dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="4dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -613,52 +548,79 @@
         android:id="@+id/detect_constraint_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:background="?attr/colorSurface"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/gray_line_constraint_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/detected_image_view"
-            android:layout_width="288dp"
-            android:layout_height="331dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/image_detect"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/detect_trash_material_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:backgroundTint="@color/green"
-            android:text="@string/detect_button"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detected_image_view"
-            tools:ignore="SpeakableTextPresentCheck" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/detect_info_material_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/green"
-            android:text="@string/detection_info_button"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detect_trash_material_button"
-            tools:ignore="SpeakableTextPresentCheck" />
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/detected_image_frame"
+                    style="@style/Widget.EcoSort.OutlinedCard"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:cardBackgroundColor="@color/eco_surface_tint"
+                    app:layout_constraintDimensionRatio="H,1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_max="320dp">
+
+                    <ImageView
+                        android:id="@+id/detected_image_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="12dp"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/image_detect" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/detect_trash_material_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:minHeight="48dp"
+                    android:text="@string/detect_button"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/green"
+                    app:cornerRadius="12dp"
+                    app:layout_constraintEnd_toEndOf="@id/detected_image_frame"
+                    app:layout_constraintStart_toStartOf="@id/detected_image_frame"
+                    app:layout_constraintTop_toBottomOf="@id/detected_image_frame" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/detect_info_material_button"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:minHeight="48dp"
+                    android:text="@string/detection_info_button"
+                    android:textColor="@color/eco_accent"
+                    app:cornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/detected_image_frame"
+                    app:layout_constraintStart_toStartOf="@id/detected_image_frame"
+                    app:layout_constraintTop_toBottomOf="@id/detect_trash_material_button"
+                    app:layout_constraintVertical_bias="0"
+                    app:strokeColor="@color/eco_outline" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

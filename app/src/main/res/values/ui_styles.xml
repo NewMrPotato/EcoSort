@@ -1,0 +1,48 @@
+<resources>
+    <style name="Widget.EcoSort.NavigationItem" parent="">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginStart">2dp</item>
+        <item name="android:layout_marginEnd">2dp</item>
+        <item name="android:minHeight">60dp</item>
+        <item name="android:background">@drawable/eco_nav_item</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Widget.EcoSort.NavigationIcon" parent="">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:duplicateParentState">true</item>
+        <item name="android:importantForAccessibility">no</item>
+        <item name="android:tint">@color/eco_nav_tint</item>
+    </style>
+
+    <style name="Widget.EcoSort.NavigationLabel" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:duplicateParentState">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/eco_nav_tint</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="Widget.EcoSort.OutlinedCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">?attr/colorSurface</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/eco_outline</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="rippleColor">@color/eco_ripple</item>
+    </style>
+
+    <style name="Widget.EcoSort.Segment" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/eco_accent</item>
+        <item name="backgroundTint">@color/eco_segment_surface</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="strokeColor">@color/eco_outline</item>
+    </style>
+</resources>

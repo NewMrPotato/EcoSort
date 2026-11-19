@@ -66,20 +66,10 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity implements RecyclerViewInterface, UserLocationObjectListener, CameraListener {
 
-    private ConstraintLayout main_profile_button_constraint_layout;
-    private ConstraintLayout main_education_button_constraint_layout;
-    private ConstraintLayout main_map_button_constraint_layout;
-    private ConstraintLayout main_trash_detection_button_constraint_layout;
-
-    private ImageView main_profile_image_view;
-    private ImageView main_education_image_view;
-    private ImageView main_map_image_view;
-    private ImageView main_trash_detection_image_view;
-
-    private TextView main_profile_text_view;
-    private TextView main_education_text_view;
-    private TextView main_map_text_view;
-    private TextView main_trash_detection_text_view;
+    private View main_profile_button_constraint_layout;
+    private View main_education_button_constraint_layout;
+    private View main_map_button_constraint_layout;
+    private View main_trash_detection_button_constraint_layout;
 
     private ConstraintLayout introducing_constraint_layout;
     private ConstraintLayout profile_constraint_layout;
@@ -148,16 +138,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         main_map_button_constraint_layout = findViewById(R.id.main_map_button_constraint_layout);
         main_trash_detection_button_constraint_layout = findViewById(R.id.main_trash_detection_button_constraint_layout);
 
-        main_profile_image_view = findViewById(R.id.main_profile_image_view);
-        main_education_image_view = findViewById(R.id.main_education_image_view);
-        main_map_image_view = findViewById(R.id.main_map_image_view);
-        main_trash_detection_image_view = findViewById(R.id.main_trash_detection_image_view);
-
-        main_profile_text_view = findViewById(R.id.main_profile_text_view);
-        main_education_text_view = findViewById(R.id.main_education_text_view);
-        main_map_text_view = findViewById(R.id.main_map_text_view);
-        main_trash_detection_text_view = findViewById(R.id.main_trash_detection_text_view);
-
         introducing_constraint_layout = findViewById(R.id.introducing_constraint_layout);
         profile_constraint_layout = findViewById(R.id.profile_constraint_layout);
         learn_constraint_layout = findViewById(R.id.learn_constraint_layout);
@@ -198,7 +178,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         if (savedInstanceState != null) {
             pendingPhoto = savedInstanceState.getParcelable(PENDING_PHOTO);
             displayedPhoto = savedInstanceState.getParcelable(DISPLAYED_PHOTO);
-            detected_image_view.setImageURI(displayedPhoto);
+            if (displayedPhoto != null) {
+                detected_image_view.setImageURI(displayedPhoto);
+            }
         }
 
         lessons_recycler_view = findViewById(R.id.lessons_recycler_view);
@@ -215,11 +197,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
 
         introducing_text_view = findViewById(R.id.introducing_text_view);
         introducing_text_view.setText(Html.fromHtml(getString(R.string.introducing_html)));
-
-        main_profile_image_view.setBackgroundResource(R.drawable.ic_baseline_person_65);
-        main_education_image_view.setBackgroundResource(R.drawable.ic_baseline_menu_book_24);
-        main_map_image_view.setBackgroundResource(R.drawable.ic_baseline_map_24);
-        main_trash_detection_image_view.setBackgroundResource(R.drawable.ic_baseline_search_24);
 
         setActionsForClGroups();
         if (savedInstanceState != null) {
@@ -509,25 +486,15 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         selectedTab = tab;
         updateUserLocation();
         introducing_constraint_layout.setVisibility(tab == 0 ? View.VISIBLE : View.INVISIBLE);
-        updateTab(tab, main_profile_button_constraint_layout, main_profile_image_view,
-                main_profile_text_view, profile_constraint_layout, R.drawable.ic_baseline_person_65,
-                R.drawable.ic_baseline_person_65_second);
-        updateTab(tab, main_education_button_constraint_layout, main_education_image_view,
-                main_education_text_view, learn_constraint_layout, R.drawable.ic_baseline_menu_book_24,
-                R.drawable.ic_baseline_menu_book_24_second);
-        updateTab(tab, main_map_button_constraint_layout, main_map_image_view,
-                main_map_text_view, map_constraint_layout, R.drawable.ic_baseline_map_24,
-                R.drawable.ic_baseline_map_24_second);
-        updateTab(tab, main_trash_detection_button_constraint_layout, main_trash_detection_image_view,
-                main_trash_detection_text_view, detect_constraint_layout, R.drawable.ic_baseline_search_24,
-                R.drawable.ic_baseline_search_24_second);
+        updateTab(tab, main_profile_button_constraint_layout, profile_constraint_layout);
+        updateTab(tab, main_education_button_constraint_layout, learn_constraint_layout);
+        updateTab(tab, main_map_button_constraint_layout, map_constraint_layout);
+        updateTab(tab, main_trash_detection_button_constraint_layout, detect_constraint_layout);
     }
 
-    private void updateTab(int tab, View button, ImageView icon, TextView label, View panel,
-                           int inactiveIcon, int activeIcon) {
+    private void updateTab(int tab, View button, View panel) {
         boolean active = tab == button.getId();
-        icon.setBackgroundResource(active ? activeIcon : inactiveIcon);
-        label.setTextColor(ContextCompat.getColor(this, active ? R.color.light_green : R.color.light_gray));
+        button.setSelected(active);
         panel.setVisibility(active ? View.VISIBLE : View.INVISIBLE);
     }
 
