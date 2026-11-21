@@ -1,0 +1,32 @@
+[
+  {
+    "file": "cardboard1.jpg",
+    "label": "cardboard",
+    "archive_path": "dataset-resized/cardboard/cardboard1.jpg"
+  },
+  {
+    "file": "glass1.jpg",
+    "label": "glass",
+    "archive_path": "dataset-resized/glass/glass1.jpg"
+  },
+  {
+    "file": "metal1.jpg",
+    "label": "metal",
+    "archive_path": "dataset-resized/metal/metal1.jpg"
+  },
+  {
+    "file": "paper100.jpg",
+    "label": "paper",
+    "archive_path": "dataset-resized/paper/paper100.jpg"
+  },
+  {
+    "file": "plastic100.jpg",
+    "label": "plastic",
+    "archive_path": "dataset-resized/plastic/plastic100.jpg"
+  },
+  {
+    "file": "trash10.jpg",
+    "label": "trash",
+    "archive_path": "dataset-resized/trash/trash10.jpg"
+  }
+]

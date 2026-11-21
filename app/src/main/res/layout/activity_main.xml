@@ -544,85 +544,16 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <include
         android:id="@+id/detect_constraint_layout"
+        layout="@layout/recognition_panel"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="?attr/colorSurface"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/gray_line_constraint_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/detected_image_frame"
-                    style="@style/Widget.EcoSort.OutlinedCard"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:cardBackgroundColor="@color/eco_surface_tint"
-                    app:layout_constraintDimensionRatio="H,1:1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintWidth_max="320dp">
-
-                    <ImageView
-                        android:id="@+id/detected_image_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="12dp"
-                        android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/image_detect" />
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/detect_trash_material_button"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:minHeight="48dp"
-                    android:text="@string/detect_button"
-                    android:textColor="@color/white"
-                    app:backgroundTint="@color/green"
-                    app:cornerRadius="12dp"
-                    app:layout_constraintEnd_toEndOf="@id/detected_image_frame"
-                    app:layout_constraintStart_toStartOf="@id/detected_image_frame"
-                    app:layout_constraintTop_toBottomOf="@id/detected_image_frame" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/detect_info_material_button"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:minHeight="48dp"
-                    android:text="@string/detection_info_button"
-                    android:textColor="@color/eco_accent"
-                    app:cornerRadius="12dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@id/detected_image_frame"
-                    app:layout_constraintStart_toStartOf="@id/detected_image_frame"
-                    app:layout_constraintTop_toBottomOf="@id/detect_trash_material_button"
-                    app:layout_constraintVertical_bias="0"
-                    app:strokeColor="@color/eco_outline" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </ScrollView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <include
         android:id="@+id/map_constraint_layout"

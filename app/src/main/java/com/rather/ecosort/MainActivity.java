@@ -1,18 +1,19 @@
 package com.rather.ecosort;
 
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.PickVisualMediaRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
@@ -38,6 +39,9 @@ import com.rather.ecosort.adapters.LessonAdapter;
 import com.rather.ecosort.adapters.RecyclerViewInterface;
 import com.rather.ecosort.models.Lesson;
 import com.rather.ecosort.models.Placemark;
+import com.rather.ecosort.recognition.WasteCategory;
+import com.rather.ecosort.recognition.WastePrediction;
+import com.rather.ecosort.recognition.WasteRecognitionViewModel;
 import com.yandex.mapkit.MapKitFactory;
 import com.yandex.mapkit.geometry.Point;
 import com.yandex.mapkit.layers.ObjectEvent;
@@ -74,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     private ConstraintLayout introducing_constraint_layout;
     private ConstraintLayout profile_constraint_layout;
     private ConstraintLayout learn_constraint_layout;
-    private ConstraintLayout detect_constraint_layout;
+    private View detect_constraint_layout;
     private View map_constraint_layout;
 
     private TextView move_to_registration_text_view;
@@ -101,13 +105,21 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     private int selectedTab;
     private boolean labelsVisible;
 
+    private WasteRecognitionViewModel recognition;
+
     private final ActivityResultLauncher<Uri> takePicture = registerForActivityResult(
             new ActivityResultContracts.TakePicture(), this::onPhotoResult);
+    private final ActivityResultLauncher<PickVisualMediaRequest> pickPhoto = registerForActivityResult(
+            new ActivityResultContracts.PickVisualMedia(), uri -> {
+                if (uri != null) {
+                    recognition.analyze(uri);
+                }
+            });
     private final ActivityResultLauncher<String[]> requestLocation = registerForActivityResult(
             new ActivityResultContracts.RequestMultiplePermissions(), result -> updateUserLocation());
 
     private MaterialButton detect_trash_material_button;
-    private MaterialButton detect_info_material_button;
+    private MaterialButton choosePhotoButton;
     private ImageView detected_image_view;
 
     private TextView introducing_text_view;
@@ -155,31 +167,29 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
 
         detected_image_view = findViewById(R.id.detected_image_view);
         detect_trash_material_button = findViewById(R.id.detect_trash_material_button);
-        detect_info_material_button = findViewById(R.id.detect_info_material_button);
-
-        detect_info_material_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this)
-                    .setTitle(R.string.detection_info_title)
-                    .setMessage(R.string.detection_info_message)
-                    .setCancelable(true)
-                    .setNegativeButton(R.string.detection_info_close, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
-                    });
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
+        choosePhotoButton = findViewById(R.id.recognition_choose_photo);
+        recognition = new ViewModelProvider(this).get(WasteRecognitionViewModel.class);
+        recognition.state().observe(this, this::renderRecognition);
+        findViewById(R.id.detect_info_material_button).setOnClickListener(view ->
+                new AlertDialog.Builder(this)
+                        .setTitle(R.string.recognition_help_title)
+                        .setMessage(R.string.recognition_help_message)
+                        .setPositiveButton(R.string.close, null)
+                        .show());
+        detect_trash_material_button.setOnClickListener(view -> openCamera());
+        choosePhotoButton.setOnClickListener(view -> {
+            try {
+                pickPhoto.launch(new PickVisualMediaRequest.Builder()
+                        .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE).build());
+            } catch (ActivityNotFoundException exception) {
+                Toast.makeText(this, R.string.recognition_picker_error, Toast.LENGTH_SHORT).show();
             }
         });
-
-        detect_trash_material_button.setOnClickListener(view -> openCamera());
         if (savedInstanceState != null) {
             pendingPhoto = savedInstanceState.getParcelable(PENDING_PHOTO);
             displayedPhoto = savedInstanceState.getParcelable(DISPLAYED_PHOTO);
-            if (displayedPhoto != null) {
-                detected_image_view.setImageURI(displayedPhoto);
+            if (displayedPhoto != null && !recognition.hasPhoto()) {
+                recognition.analyze(displayedPhoto);
             }
         }
 
@@ -202,6 +212,42 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         if (savedInstanceState != null) {
             showTab(savedInstanceState.getInt(SELECTED_TAB));
         }
+    }
+
+    private void renderRecognition(WasteRecognitionViewModel.State state) {
+        detect_trash_material_button.setEnabled(!state.loading);
+        choosePhotoButton.setEnabled(!state.loading);
+        findViewById(R.id.recognition_progress).setVisibility(state.loading ? View.VISIBLE : View.GONE);
+        if (state.photo == null) {
+            detected_image_view.setImageResource(R.drawable.image_detect);
+        } else {
+            detected_image_view.setImageBitmap(state.photo);
+        }
+        TextView status = findViewById(R.id.recognition_status);
+        View result = findViewById(R.id.recognition_result);
+        status.setVisibility(state.prediction == null ? View.VISIBLE : View.GONE);
+        result.setVisibility(state.prediction == null ? View.GONE : View.VISIBLE);
+        if (state.prediction == null) {
+            int message = state.loading ? R.string.recognition_loading : R.string.recognition_idle;
+            status.setText(state.errorResource == 0 ? message : state.errorResource);
+            return;
+        }
+
+        WastePrediction prediction = state.prediction;
+        WasteCategory category = prediction.topCategory();
+        TextView title = findViewById(R.id.recognition_result_title);
+        title.setText(prediction.isConfident()
+                ? getString(R.string.recognition_result, getString(category.nameResource))
+                : getString(R.string.recognition_unsure));
+        List<String> candidates = new ArrayList<>();
+        for (WasteCategory candidate : prediction.topThree()) {
+            candidates.add(getString(R.string.recognition_candidate, getString(candidate.nameResource),
+                    Math.round(prediction.score(candidate) * 100)));
+        }
+        TextView scores = findViewById(R.id.recognition_scores);
+        scores.setText(android.text.TextUtils.join("\n", candidates));
+        TextView advice = findViewById(R.id.recognition_advice);
+        advice.setText(prediction.isConfident() ? category.adviceResource : R.string.recognition_try_again);
     }
 
     private void openCamera() {
@@ -227,7 +273,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         if (success) {
             deletePhoto(displayedPhoto);
             displayedPhoto = pendingPhoto;
-            detected_image_view.setImageURI(displayedPhoto);
+            recognition.analyze(displayedPhoto);
         } else {
             deletePhoto(pendingPhoto);
         }

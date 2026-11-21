@@ -2,7 +2,7 @@
     <string name="app_name">EcoSort</string>
     <string name="profile">Профиль</string>
     <string name="learn">Обучение</string>
-    <string name="detect">Обнаружение</string>
+    <string name="detect">Распознать</string>
     <string name="map">Карта</string>
     <string name="map_key" translatable="false"></string>
     <string name="search">Поиск</string>
@@ -20,7 +20,6 @@
     <string name="sigh_in">Вход</string>
     <string name="registration">Зарегистрироваться</string>
     <string name="repeat_password">Повторите пароль</string>
-    <string name="detect_button">Обнаружить</string>
     <string name="collection_points_title">Пункты приёма</string>
     <string name="collection_points_tab">Пункты</string>
     <string name="collection_points_demo">Нижневартовск · демонстрационные данные</string>
@@ -33,11 +32,7 @@
     <string name="camera_unavailable">Не удалось открыть камеру.</string>
     <string name="profile_unavailable">Вход и регистрация пока недоступны.</string>
     <string name="close">Закрыть</string>
-    <string name="detection_info_title">"Что ожидается в этом разделе"</string>
-    <string name="detection_info_message">"В данном разделе планируется реализовать распознавание мусора на фото и его сортировку"</string>
-    <string name="detection_info_close">"`Закрыть`"</string>
     <string name="introducing_html">"&lt;h1&gt;Добро пожаловать в приложение для обучения сортировке мусора!&lt;/h1&gt;\n&lt;p&gt;Мы рады видеть вас здесь! Начните учиться правильной сортировке отходов, чтобы сделать наш мир чище и здоровее.&lt;/p&gt;\n&lt;p&gt;Следуйте нашим рекомендациям, разделяйте отходы на категории и помогайте сохранить окружающую среду.&lt;/p&gt;\n&lt;p&gt;Давайте вместе делать мир лучше!&lt;/p&gt;"</string>
-    <string name="detection_info_button">"Что ожидается?"</string>
     <string name="lesson_row_placeholder">"Причины сортировать мусор"</string>
     <string name="text_view_placeholder" translatable="false">"TextView"</string>
 </resources>
