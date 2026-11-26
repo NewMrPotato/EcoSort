@@ -1,0 +1,40 @@
+{
+  "source": "https://github.com/nirajshevade/Waste-Classification-using-mobilenet",
+  "revision": "d6793018602abe9d86e61e6e55f047ed181b4698",
+  "source_path": "models/waste_classifier_fp16.tflite",
+  "sha256": "80a3fc010bd0de1c376cdabab2bfc7630210b28c15df738997a009d8891cd492",
+  "bytes": 5192428,
+  "license": "MIT",
+  "input": {
+    "shape": [
+      1,
+      224,
+      224,
+      3
+    ],
+    "type": "float32",
+    "color": "RGB",
+    "normalization": "channel / 127.5 - 1",
+    "resize": "bilinear, stretch"
+  },
+  "output": {
+    "shape": [
+      1,
+      10
+    ],
+    "type": "float32",
+    "activation": "softmax",
+    "labels": [
+      "battery",
+      "biological",
+      "cardboard",
+      "clothes",
+      "glass",
+      "metal",
+      "paper",
+      "plastic",
+      "shoes",
+      "trash"
+    ]
+  }
+}

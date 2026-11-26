@@ -1,0 +1,489 @@
+{
+  "purpose": "Integration smoke check, not an independent holdout evaluation",
+  "model_sha256": "80a3fc010bd0de1c376cdabab2bfc7630210b28c15df738997a009d8891cd492",
+  "archive_sha256": "0bf472790f8b20e5c950d5b5012a9d38af0d3392efd65f8ce171334fc16b07c2",
+  "correct": 53,
+  "total": 60,
+  "results": [
+    {
+      "file": "dataset-resized/cardboard/cardboard1.jpg",
+      "expected": "cardboard",
+      "predicted": "cardboard",
+      "score": 0.999937891960144,
+      "gap": 0.9998807907104492,
+      "inference_ms": 6.409599998733029
+    },
+    {
+      "file": "dataset-resized/cardboard/cardboard10.jpg",
+      "expected": "cardboard",
+      "predicted": "cardboard",
+      "score": 0.999984622001648,
+      "gap": 0.9999715089797974,
+      "inference_ms": 6.361200001265388
+    },
+    {
+      "file": "dataset-resized/cardboard/cardboard100.jpg",
+      "expected": "cardboard",
+      "predicted": "cardboard",
+      "score": 0.9999115467071533,
+      "gap": 0.9998255968093872,
+      "inference_ms": 6.216699999640696
+    },
+    {
+      "file": "dataset-resized/cardboard/cardboard101.jpg",
+      "expected": "cardboard",
+      "predicted": "cardboard",
+      "score": 0.9998667240142822,
+      "gap": 0.9997848868370056,
+      "inference_ms": 6.354999997711275
+    },
+    {
+      "file": "dataset-resized/cardboard/cardboard102.jpg",
+      "expected": "cardboard",
+      "predicted": "cardboard",
+      "score": 0.9982695579528809,
+      "gap": 0.9975787997245789,
+      "inference_ms": 6.4545999994152226
+    },
+    {
+      "file": "dataset-resized/cardboard/cardboard103.jpg",
+      "expected": "cardboard",
+      "predicted": "cardboard",
+      "score": 0.9999572038650513,
+      "gap": 0.9999207854270935,
+      "inference_ms": 6.7115999991074204
+    },
+    {
+      "file": "dataset-resized/cardboard/cardboard104.jpg",
+      "expected": "cardboard",
+      "predicted": "cardboard",
+      "score": 0.9997839331626892,
+      "gap": 0.9996115565299988,
+      "inference_ms": 6.508000002213521
+    },
+    {
+      "file": "dataset-resized/cardboard/cardboard105.jpg",
+      "expected": "cardboard",
+      "predicted": "cardboard",
+      "score": 0.9999897480010986,
+      "gap": 0.9999803304672241,
+      "inference_ms": 6.574899998668116
+    },
+    {
+      "file": "dataset-resized/cardboard/cardboard106.jpg",
+      "expected": "cardboard",
+      "predicted": "cardboard",
+      "score": 0.9989014863967896,
+      "gap": 0.9981127977371216,
+      "inference_ms": 6.247299999813549
+    },
+    {
+      "file": "dataset-resized/cardboard/cardboard107.jpg",
+      "expected": "cardboard",
+      "predicted": "cardboard",
+      "score": 0.9999821186065674,
+      "gap": 0.9999674558639526,
+      "inference_ms": 7.51490000038757
+    },
+    {
+      "file": "dataset-resized/glass/glass1.jpg",
+      "expected": "glass",
+      "predicted": "glass",
+      "score": 0.9807308912277222,
+      "gap": 0.972883939743042,
+      "inference_ms": 7.152499998483108
+    },
+    {
+      "file": "dataset-resized/glass/glass10.jpg",
+      "expected": "glass",
+      "predicted": "glass",
+      "score": 0.8823266625404358,
+      "gap": 0.7880070209503174,
+      "inference_ms": 6.165200000395998
+    },
+    {
+      "file": "dataset-resized/glass/glass100.jpg",
+      "expected": "glass",
+      "predicted": "metal",
+      "score": 0.47610342502593994,
+      "gap": 0.08137744665145874,
+      "inference_ms": 6.281900001340546
+    },
+    {
+      "file": "dataset-resized/glass/glass101.jpg",
+      "expected": "glass",
+      "predicted": "glass",
+      "score": 0.9986880421638489,
+      "gap": 0.9975525736808777,
+      "inference_ms": 6.316599999991013
+    },
+    {
+      "file": "dataset-resized/glass/glass102.jpg",
+      "expected": "glass",
+      "predicted": "glass",
+      "score": 0.7572062611579895,
+      "gap": 0.5388535857200623,
+      "inference_ms": 6.435699997382471
+    },
+    {
+      "file": "dataset-resized/glass/glass103.jpg",
+      "expected": "glass",
+      "predicted": "glass",
+      "score": 0.991868257522583,
+      "gap": 0.9884060621261597,
+      "inference_ms": 6.293800001003547
+    },
+    {
+      "file": "dataset-resized/glass/glass104.jpg",
+      "expected": "glass",
+      "predicted": "glass",
+      "score": 0.9965974688529968,
+      "gap": 0.994116485118866,
+      "inference_ms": 6.260600002860883
+    },
+    {
+      "file": "dataset-resized/glass/glass105.jpg",
+      "expected": "glass",
+      "predicted": "glass",
+      "score": 0.9991390705108643,
+      "gap": 0.9987303614616394,
+      "inference_ms": 6.214500001078704
+    },
+    {
+      "file": "dataset-resized/glass/glass106.jpg",
+      "expected": "glass",
+      "predicted": "glass",
+      "score": 0.4876963198184967,
+      "gap": 0.04914557933807373,
+      "inference_ms": 6.290900000749389
+    },
+    {
+      "file": "dataset-resized/glass/glass107.jpg",
+      "expected": "glass",
+      "predicted": "glass",
+      "score": 0.9979270696640015,
+      "gap": 0.9969706535339355,
+      "inference_ms": 6.211799998709466
+    },
+    {
+      "file": "dataset-resized/metal/metal1.jpg",
+      "expected": "metal",
+      "predicted": "metal",
+      "score": 0.9977090358734131,
+      "gap": 0.9957982301712036,
+      "inference_ms": 6.240300001081778
+    },
+    {
+      "file": "dataset-resized/metal/metal10.jpg",
+      "expected": "metal",
+      "predicted": "metal",
+      "score": 0.9961338043212891,
+      "gap": 0.9929831027984619,
+      "inference_ms": 6.250899998121895
+    },
+    {
+      "file": "dataset-resized/metal/metal100.jpg",
+      "expected": "metal",
+      "predicted": "metal",
+      "score": 0.9971438050270081,
+      "gap": 0.9950361847877502,
+      "inference_ms": 6.568200002220692
+    },
+    {
+      "file": "dataset-resized/metal/metal101.jpg",
+      "expected": "metal",
+      "predicted": "metal",
+      "score": 0.9992080330848694,
+      "gap": 0.9985043406486511,
+      "inference_ms": 6.053299999621231
+    },
+    {
+      "file": "dataset-resized/metal/metal102.jpg",
+      "expected": "metal",
+      "predicted": "metal",
+      "score": 0.9819239974021912,
+      "gap": 0.9688445329666138,
+      "inference_ms": 6.102899998950306
+    },
+    {
+      "file": "dataset-resized/metal/metal103.jpg",
+      "expected": "metal",
+      "predicted": "metal",
+      "score": 0.9737337231636047,
+      "gap": 0.9628065824508667,
+      "inference_ms": 6.686100001388695
+    },
+    {
+      "file": "dataset-resized/metal/metal104.jpg",
+      "expected": "metal",
+      "predicted": "metal",
+      "score": 0.9173220992088318,
+      "gap": 0.841329038143158,
+      "inference_ms": 6.55420000111917
+    },
+    {
+      "file": "dataset-resized/metal/metal105.jpg",
+      "expected": "metal",
+      "predicted": "metal",
+      "score": 0.9175012111663818,
+      "gap": 0.8552753925323486,
+      "inference_ms": 6.958600002690218
+    },
+    {
+      "file": "dataset-resized/metal/metal106.jpg",
+      "expected": "metal",
+      "predicted": "metal",
+      "score": 0.9756829738616943,
+      "gap": 0.9534123539924622,
+      "inference_ms": 6.48160000127973
+    },
+    {
+      "file": "dataset-resized/metal/metal107.jpg",
+      "expected": "metal",
+      "predicted": "metal",
+      "score": 0.9823399782180786,
+      "gap": 0.9701058268547058,
+      "inference_ms": 6.816400000388967
+    },
+    {
+      "file": "dataset-resized/paper/paper1.jpg",
+      "expected": "paper",
+      "predicted": "paper",
+      "score": 0.5822625160217285,
+      "gap": 0.2118232548236847,
+      "inference_ms": 6.457999999838648
+    },
+    {
+      "file": "dataset-resized/paper/paper10.jpg",
+      "expected": "paper",
+      "predicted": "shoes",
+      "score": 0.6472154259681702,
+      "gap": 0.35568687319755554,
+      "inference_ms": 6.579599998076446
+    },
+    {
+      "file": "dataset-resized/paper/paper100.jpg",
+      "expected": "paper",
+      "predicted": "paper",
+      "score": 0.7885562181472778,
+      "gap": 0.6320818662643433,
+      "inference_ms": 6.405399999493966
+    },
+    {
+      "file": "dataset-resized/paper/paper101.jpg",
+      "expected": "paper",
+      "predicted": "cardboard",
+      "score": 0.633488118648529,
+      "gap": 0.28119367361068726,
+      "inference_ms": 6.573399998160312
+    },
+    {
+      "file": "dataset-resized/paper/paper102.jpg",
+      "expected": "paper",
+      "predicted": "cardboard",
+      "score": 0.7662736773490906,
+      "gap": 0.6294362545013428,
+      "inference_ms": 6.301500001427485
+    },
+    {
+      "file": "dataset-resized/paper/paper103.jpg",
+      "expected": "paper",
+      "predicted": "paper",
+      "score": 0.9921942949295044,
+      "gap": 0.9873666763305664,
+      "inference_ms": 6.183100002090214
+    },
+    {
+      "file": "dataset-resized/paper/paper104.jpg",
+      "expected": "paper",
+      "predicted": "paper",
+      "score": 0.9711904525756836,
+      "gap": 0.9518349170684814,
+      "inference_ms": 6.100500002503395
+    },
+    {
+      "file": "dataset-resized/paper/paper105.jpg",
+      "expected": "paper",
+      "predicted": "paper",
+      "score": 0.9180653095245361,
+      "gap": 0.8781781196594238,
+      "inference_ms": 6.08500000089407
+    },
+    {
+      "file": "dataset-resized/paper/paper106.jpg",
+      "expected": "paper",
+      "predicted": "paper",
+      "score": 0.6999677419662476,
+      "gap": 0.5022380352020264,
+      "inference_ms": 6.130400000984082
+    },
+    {
+      "file": "dataset-resized/paper/paper107.jpg",
+      "expected": "paper",
+      "predicted": "paper",
+      "score": 0.9948083758354187,
+      "gap": 0.9917042255401611,
+      "inference_ms": 6.122499999037245
+    },
+    {
+      "file": "dataset-resized/plastic/plastic1.jpg",
+      "expected": "plastic",
+      "predicted": "glass",
+      "score": 0.9751476049423218,
+      "gap": 0.9628313779830933,
+      "inference_ms": 6.231900002603652
+    },
+    {
+      "file": "dataset-resized/plastic/plastic10.jpg",
+      "expected": "plastic",
+      "predicted": "plastic",
+      "score": 0.6267467141151428,
+      "gap": 0.39111822843551636,
+      "inference_ms": 6.8615999989560805
+    },
+    {
+      "file": "dataset-resized/plastic/plastic100.jpg",
+      "expected": "plastic",
+      "predicted": "plastic",
+      "score": 0.9915731549263,
+      "gap": 0.9880426526069641,
+      "inference_ms": 6.175700000312645
+    },
+    {
+      "file": "dataset-resized/plastic/plastic101.jpg",
+      "expected": "plastic",
+      "predicted": "plastic",
+      "score": 0.9638094305992126,
+      "gap": 0.9502878189086914,
+      "inference_ms": 6.110299997089896
+    },
+    {
+      "file": "dataset-resized/plastic/plastic102.jpg",
+      "expected": "plastic",
+      "predicted": "plastic",
+      "score": 0.5633253455162048,
+      "gap": 0.2709031403064728,
+      "inference_ms": 6.215800000063609
+    },
+    {
+      "file": "dataset-resized/plastic/plastic103.jpg",
+      "expected": "plastic",
+      "predicted": "plastic",
+      "score": 0.9850078821182251,
+      "gap": 0.9796009063720703,
+      "inference_ms": 6.170500000735046
+    },
+    {
+      "file": "dataset-resized/plastic/plastic104.jpg",
+      "expected": "plastic",
+      "predicted": "plastic",
+      "score": 0.9847167730331421,
+      "gap": 0.9734600186347961,
+      "inference_ms": 6.278799999563489
+    },
+    {
+      "file": "dataset-resized/plastic/plastic105.jpg",
+      "expected": "plastic",
+      "predicted": "plastic",
+      "score": 0.9447768926620483,
+      "gap": 0.9017508625984192,
+      "inference_ms": 6.381399998645065
+    },
+    {
+      "file": "dataset-resized/plastic/plastic106.jpg",
+      "expected": "plastic",
+      "predicted": "plastic",
+      "score": 0.9971742630004883,
+      "gap": 0.9957706332206726,
+      "inference_ms": 6.026399998518173
+    },
+    {
+      "file": "dataset-resized/plastic/plastic107.jpg",
+      "expected": "plastic",
+      "predicted": "metal",
+      "score": 0.9386851787567139,
+      "gap": 0.8882679343223572,
+      "inference_ms": 6.080300001485739
+    },
+    {
+      "file": "dataset-resized/trash/trash1.jpg",
+      "expected": "trash",
+      "predicted": "metal",
+      "score": 0.9153839945793152,
+      "gap": 0.8622413873672485,
+      "inference_ms": 6.076499998016516
+    },
+    {
+      "file": "dataset-resized/trash/trash10.jpg",
+      "expected": "trash",
+      "predicted": "trash",
+      "score": 0.9998596906661987,
+      "gap": 0.9997982382774353,
+      "inference_ms": 6.16019999870332
+    },
+    {
+      "file": "dataset-resized/trash/trash100.jpg",
+      "expected": "trash",
+      "predicted": "trash",
+      "score": 0.7997318506240845,
+      "gap": 0.6826891303062439,
+      "inference_ms": 6.121700000221608
+    },
+    {
+      "file": "dataset-resized/trash/trash101.jpg",
+      "expected": "trash",
+      "predicted": "trash",
+      "score": 0.9972942471504211,
+      "gap": 0.9963593482971191,
+      "inference_ms": 6.156700001156423
+    },
+    {
+      "file": "dataset-resized/trash/trash102.jpg",
+      "expected": "trash",
+      "predicted": "trash",
+      "score": 0.999354898929596,
+      "gap": 0.9991478323936462,
+      "inference_ms": 6.381099999998696
+    },
+    {
+      "file": "dataset-resized/trash/trash103.jpg",
+      "expected": "trash",
+      "predicted": "trash",
+      "score": 0.9942132830619812,
+      "gap": 0.9907610416412354,
+      "inference_ms": 6.048999999620719
+    },
+    {
+      "file": "dataset-resized/trash/trash104.jpg",
+      "expected": "trash",
+      "predicted": "trash",
+      "score": 0.9997487664222717,
+      "gap": 0.9996024370193481,
+      "inference_ms": 6.158399999549147
+    },
+    {
+      "file": "dataset-resized/trash/trash105.jpg",
+      "expected": "trash",
+      "predicted": "trash",
+      "score": 0.9996895790100098,
+      "gap": 0.9994334578514099,
+      "inference_ms": 6.052199998521246
+    },
+    {
+      "file": "dataset-resized/trash/trash106.jpg",
+      "expected": "trash",
+      "predicted": "trash",
+      "score": 0.9819294810295105,
+      "gap": 0.9641786217689514,
+      "inference_ms": 6.459200001700083
+    },
+    {
+      "file": "dataset-resized/trash/trash107.jpg",
+      "expected": "trash",
+      "predicted": "trash",
+      "score": 0.9996600151062012,
+      "gap": 0.9995781779289246,
+      "inference_ms": 6.416299998818431
+    }
+  ]
+}

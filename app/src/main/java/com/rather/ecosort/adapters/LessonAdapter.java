@@ -52,8 +52,8 @@ public class LessonAdapter extends RecyclerView.Adapter<LessonAdapter.LessonView
 
                 Intent intent = new Intent(context, LessonActivity.class);
 
-                intent.putExtra("lesson_content_image_view", lesson.getMain_image());
-                intent.putExtra("lesson_content_text_view", lesson.getText());
+                intent.putExtra(LessonActivity.EXTRA_IMAGE, lesson.getMain_image());
+                intent.putExtra(LessonActivity.EXTRA_TEXT, lesson.getText());
 
                 context.startActivity(intent, ActivityOptions.makeSceneTransitionAnimation((Activity) context).toBundle());
             }

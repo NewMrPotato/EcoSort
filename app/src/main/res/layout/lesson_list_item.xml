@@ -1,54 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.EcoSort.OutlinedCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_marginBottom="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/light_green"
+    app:strokeColor="@color/green2">
 
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:cardCornerRadius="20dp"
-        android:layout_margin="5dp"
-        android:elevation="10dp">
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="72dp"
+        android:orientation="horizontal"
+        android:padding="12dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/light_green"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_margin="5dp"
-                android:layout_marginStart="10dp"
-                android:elevation="10dp"
-                app:cardCornerRadius="20dp"
-                android:background="@color/white">
-
-                <ImageView
-                    android:id="@+id/lesson_preview_image_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:id="@+id/lesson_title_text_view"
+            <ImageView
+                android:id="@+id/lesson_preview_image_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Причины сортировать мусор"
-                android:textSize="20sp"
-                android:layout_margin="10dp"
-                android:textStyle="bold"
-                android:textColor="@color/white"/>
+                android:importantForAccessibility="no"
+                android:padding="6dp"
+                android:scaleType="fitCenter" />
 
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-    </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/lesson_title_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:text="@string/lesson_row_placeholder"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
+    </LinearLayout>
 
-
-</LinearLayout>
+</com.google.android.material.card.MaterialCardView>

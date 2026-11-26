@@ -1,0 +1,8 @@
+<resources>
+    <color name="eco_surface_tint">#243229</color>
+    <color name="eco_outline">#414F46</color>
+    <color name="eco_accent">#A2D6B3</color>
+    <color name="eco_muted">#BBCAC0</color>
+    <color name="eco_selected">#304B3A</color>
+    <color name="eco_ripple">#33A2D6B3</color>
+</resources>
