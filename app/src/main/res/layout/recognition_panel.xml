@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="16dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -31,7 +31,7 @@
             android:id="@+id/detected_image_frame"
             style="@style/Widget.EcoSort.OutlinedCard"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="180dp"
             app:cardBackgroundColor="@color/eco_surface_tint">
 
             <ImageView
